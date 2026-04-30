@@ -4,6 +4,9 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 
 import { envConfig } from "./config/env";
+import { connectDB } from "./config/db";
+
+connectDB();
 
 const app = express();
 app.use(cors());
