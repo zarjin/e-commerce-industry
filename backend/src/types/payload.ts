@@ -1,5 +1,6 @@
+import mongoose from "mongoose";
 export interface IPayload {
-  id: string;
+  id: mongoose.Types.ObjectId;
   email: string;
   role: string;
 }

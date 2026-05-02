@@ -1,66 +1,74 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI;
-const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
-const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY;
-const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET;
-const JWT_ACCESS_SECRET = process.env.JWT_ACCESS_SECRET;
-const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET;
-const JWT_ACCESS_EXPIRES = process.env.JWT_ACCESS_EXPIRES;
-const JWT_REFRESH_EXPIRES = process.env.JWT_REFRESH_EXPIRES;
+const port = process.env.PORT || 5000;
+const mongoUri = process.env.MONGO_URI;
+const cloudinaryCloudName = process.env.CLOUDINARY_CLOUD_NAME;
+const cloudinaryApiKey = process.env.CLOUDINARY_API_KEY;
+const cloudinaryApiSecret = process.env.CLOUDINARY_API_SECRET;
+const jwtAccessSecret = process.env.JWT_ACCESS_SECRET;
+const jwtRefreshSecret = process.env.JWT_REFRESH_SECRET;
+const jwtAccessExpires = process.env.JWT_ACCESS_EXPIRES;
+const jwtRefreshExpires = process.env.JWT_REFRESH_EXPIRES;
+const frontendUrl = process.env.FRONTEND_URL;
 
-if (!PORT) {
+if (!port) {
   throw new Error("PORT is not defined in environment variables");
 }
 
-if (!MONGO_URI) {
+if (!mongoUri) {
   throw new Error("MONGO_URI is not defined in environment variables");
 }
 
-if (!CLOUDINARY_CLOUD_NAME) {
+if (!cloudinaryCloudName) {
   throw new Error(
     "CLOUDINARY_CLOUD_NAME is not defined in environment variables",
   );
 }
 
-if (!CLOUDINARY_API_KEY) {
+if (!cloudinaryApiKey) {
   throw new Error("CLOUDINARY_API_KEY is not defined in environment variables");
 }
 
-if (!CLOUDINARY_API_SECRET) {
+if (!cloudinaryApiSecret) {
   throw new Error(
     "CLOUDINARY_API_SECRET is not defined in environment variables",
   );
 }
 
-if (!JWT_ACCESS_SECRET) {
+if (!jwtAccessSecret) {
   throw new Error("JWT_ACCESS_SECRET is not defined in environment variables");
 }
 
-if (!JWT_REFRESH_SECRET) {
+if (!jwtRefreshSecret) {
   throw new Error("JWT_REFRESH_SECRET is not defined in environment variables");
 }
 
-if (!JWT_ACCESS_EXPIRES) {
+if (!jwtAccessExpires) {
   throw new Error("JWT_ACCESS_EXPIRES is not defined in environment variables");
 }
 
-if (!JWT_REFRESH_EXPIRES) {
+if (!jwtRefreshExpires) {
   throw new Error(
     "JWT_REFRESH_EXPIRES is not defined in environment variables",
   );
 }
 
+if (!frontendUrl) {
+  console.warn(
+    "FRONTEND_URL is not defined in environment variables. Using default value http://localhost:5173",
+  );
+}
+
 export const envConfig = {
-  PORT,
-  MONGO_URI,
-  CLOUDINARY_CLOUD_NAME,
-  CLOUDINARY_API_KEY,
-  CLOUDINARY_API_SECRET,
-  JWT_ACCESS_SECRET,
-  JWT_REFRESH_SECRET,
-  JWT_ACCESS_EXPIRES,
-  JWT_REFRESH_EXPIRES,
+  PORT: port,
+  MONGO_URI: mongoUri,
+  CLOUDINARY_CLOUD_NAME: cloudinaryCloudName,
+  CLOUDINARY_API_KEY: cloudinaryApiKey,
+  CLOUDINARY_API_SECRET: cloudinaryApiSecret,
+  JWT_ACCESS_SECRET: jwtAccessSecret,
+  JWT_REFRESH_SECRET: jwtRefreshSecret,
+  JWT_ACCESS_EXPIRES: jwtAccessExpires,
+  JWT_REFRESH_EXPIRES: jwtRefreshExpires,
+  FRONTEND_URL: frontendUrl,
 };
