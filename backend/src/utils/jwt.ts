@@ -1,16 +1,16 @@
-import jwt from "jsonwebtoken";
+import jwt, { SignOptions } from "jsonwebtoken";
 import { envConfig } from "../config/env";
 import { IPayload } from "../types/payload";
 
 export const generateAccessToken = (payload: IPayload) => {
   return jwt.sign(payload, envConfig.JWT_ACCESS_SECRET, {
-    expiresIn: envConfig.JWT_ACCESS_EXPIRES,
+    expiresIn: envConfig.JWT_ACCESS_EXPIRES as SignOptions["expiresIn"],
   });
 };
 
 export const generateRefreshToken = (payload: IPayload) => {
   return jwt.sign(payload, envConfig.JWT_REFRESH_SECRET, {
-    expiresIn: envConfig.JWT_REFRESH_EXPIRES,
+    expiresIn: envConfig.JWT_REFRESH_EXPIRES as SignOptions["expiresIn"],
   });
 };
 
