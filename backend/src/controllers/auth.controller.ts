@@ -106,13 +106,31 @@ export const logout = (req: Request, res: Response) => {
     secure: process.env.NODE_ENV === "production",
     sameSite: "strict",
   });
+
+  return res.status(200).json({
+    success: true,
+    message: "Logged out successfully",
+  });
 };
 
 export const refreshToken = (req: Request, res: Response) => {
   try {
     const token = req.cookies.refreshToken;
-    const decoded = verifyRefreshToken(token);
-    const newAccessToken = generateAccessToken(decoded as IPayload);
+    if (!token) {
+      return res.status(401).json({
+        message:
+          "refreshToken missing refreshToken to accessToken generate unscessfully",
+        success: false,
+      });
+    }
+    const decoded = verifyRefreshToken(token) as IPayload;
+
+    const payload: IPayload = {
+      id: decoded.id,
+      email: decoded.email,
+      role: decoded.role,
+    };
+    const newAccessToken = generateAccessToken(payload);
     return res.status(200).json({
       accessToken: newAccessToken,
       success: true,

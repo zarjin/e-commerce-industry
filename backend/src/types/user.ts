@@ -1,4 +1,3 @@
-import { IAddress } from "./address";
 import { IWishList } from "./wishlist";
 
 export interface IUser {
@@ -8,6 +7,12 @@ export interface IUser {
   phone: string;
   avatar: string;
   role: string;
-  address: IAddress;
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+    country: string;
+  };
   wishlist: IWishList;
 }
