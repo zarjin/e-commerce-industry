@@ -8,6 +8,7 @@ import { envConfig } from "./config/env";
 import { connectDB } from "./config/db";
 import { authRouter } from "./routes/auth.routes";
 import { userRouter } from "./routes/user.routes";
+import { productRouter } from "./routes/product.routes";
 
 const app = express();
 
@@ -34,7 +35,7 @@ app.get("/", (req, res) => {
 // 🔑 Routes
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
-
+app.use("/api/v1/products", productRouter);
 // 🚨 Global Error Handler
 app.use(
   (
