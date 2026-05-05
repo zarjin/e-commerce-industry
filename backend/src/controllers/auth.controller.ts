@@ -13,7 +13,7 @@ export const register = async (req: Request, res: Response) => {
     const { name, email, password } = req.body;
     if (!name || !email || !password) {
       return res.status(400).json({
-        message: "required field missing register unscessfully",
+        message: "required field missing register unsuccessfully",
         success: false,
       });
     }
@@ -42,7 +42,7 @@ export const register = async (req: Request, res: Response) => {
   } catch (error) {
     return res
       .status(500)
-      .json({ message: "register user unscessfully", success: false });
+      .json({ message: "register user unsuccessfully", success: false });
   }
 };
 
@@ -51,7 +51,7 @@ export const login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
     if (!email || !password) {
       return res.status(400).json({
-        message: "required field missing login unscessfully",
+        message: "required field missing login unsuccessfully",
         success: false,
       });
     }
@@ -96,7 +96,7 @@ export const login = async (req: Request, res: Response) => {
   } catch (error) {
     return res
       .status(500)
-      .json({ message: "login user unscessfully", success: false });
+      .json({ message: "login user unsuccessfully", success: false });
   }
 };
 
@@ -119,7 +119,7 @@ export const refreshToken = (req: Request, res: Response) => {
     if (!token) {
       return res.status(401).json({
         message:
-          "refreshToken missing refreshToken to accessToken generate unscessfully",
+          "refreshToken missing refreshToken to accessToken generate unsuccessfully",
         success: false,
       });
     }
@@ -137,7 +137,7 @@ export const refreshToken = (req: Request, res: Response) => {
     });
   } catch (error) {
     return res.status(500).json({
-      message: "refreshToken to accessToken generate unscessfully",
+      message: "refreshToken to accessToken generate unsuccessfully",
       success: false,
     });
   }

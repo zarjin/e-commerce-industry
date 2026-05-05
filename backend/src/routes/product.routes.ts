@@ -5,6 +5,7 @@ import {
   product,
   deleteProduct,
   updateProduct,
+  searchProduct,
 } from "../controllers/product.controller";
 import { productUpload } from "../utils/multer";
 
@@ -19,3 +20,4 @@ productRouter.put(
   productUpload.single("imageUrl"),
   updateProduct,
 );
+productRouter.post("/search", searchProduct);

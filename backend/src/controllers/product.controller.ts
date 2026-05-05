@@ -109,3 +109,42 @@ export const deleteProduct = async (req: Request, res: Response) => {
       .json({ message: "product delete error", success: false, error });
   }
 };
+
+export const searchProduct = async (req: Request, res: Response) => {
+  try {
+    const { key } = req.params;
+
+    if (!key) {
+      return res.status(400).json({
+        success: false,
+        message: "Search key is required",
+      });
+    }
+
+    const searchData = await Product.find({
+      $or: [
+        { name: { $regex: key, $options: "i" } },
+        { category: { $regex: key, $options: "i" } },
+      ],
+    });
+
+    if (searchData.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "No products found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Products fetched successfully",
+      data: searchData,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Product search error",
+      success: false,
+      error,
+    });
+  }
+};
