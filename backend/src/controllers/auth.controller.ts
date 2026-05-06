@@ -51,7 +51,7 @@ export const login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
     if (!email || !password) {
       return res.status(400).json({
-        message: "required field missing login unsuccessfully",
+        message: "Email and password are required",
         success: false,
       });
     }
@@ -59,8 +59,8 @@ export const login = async (req: Request, res: Response) => {
     const existingUser = await User.findOne({ email });
 
     if (!existingUser) {
-      return res.status(409).json({
-        message: "user not existing create a new account",
+      return res.status(404).json({
+        message: "User does not exist. Please create a new account.",
         success: false,
       });
     }
@@ -94,9 +94,11 @@ export const login = async (req: Request, res: Response) => {
       success: true,
     });
   } catch (error) {
-    return res
-      .status(500)
-      .json({ message: "login user unsuccessfully", success: false });
+    return res.status(500).json({
+      message: "Login failed",
+      success: false,
+      error,
+    });
   }
 };
 

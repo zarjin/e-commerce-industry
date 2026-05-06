@@ -12,8 +12,8 @@ import { productUpload } from "../utils/multer";
 export const productRouter = Router();
 
 productRouter.post("/create", productUpload.single("imageUrl"), createProduct);
-productRouter.get("/products", products);
-productRouter.get("/product/:id", product);
+productRouter.get("/", products);
+productRouter.get("/:id", product);
 productRouter.delete("/delete/:id", deleteProduct);
 productRouter.put(
   "/update/:id",

@@ -126,7 +126,7 @@ export const searchProduct = async (req: Request, res: Response) => {
         { name: { $regex: key, $options: "i" } },
         { category: { $regex: key, $options: "i" } },
       ],
-    });
+    } as any);
 
     if (searchData.length === 0) {
       return res.status(404).json({
