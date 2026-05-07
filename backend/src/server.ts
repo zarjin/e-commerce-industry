@@ -6,10 +6,12 @@ import helmet from "helmet";
 import { corsConfig } from "./config/cors";
 import { envConfig } from "./config/env";
 import { connectDB } from "./config/db";
+
 import { authRouter } from "./routes/auth.routes";
 import { userRouter } from "./routes/user.routes";
 import { productRouter } from "./routes/product.routes";
 import { wishlistRouter } from "./routes/wishlist.routes";
+import { reviewRouter } from "./routes/review.routes";
 
 const app = express();
 
@@ -39,6 +41,7 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/wishlist", wishlistRouter);
+app.use("/api/v1/reviews", reviewRouter);
 // 🚨 Global Error Handler
 app.use(
   (

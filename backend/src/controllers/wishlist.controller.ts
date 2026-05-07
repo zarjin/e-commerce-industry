@@ -1,6 +1,5 @@
 import { WishList } from "../model/wishlist";
 import { Request, Response } from "express";
-import { product } from "./product.controller";
 
 type AuthRequest = Request & { user: { id: string } };
 
