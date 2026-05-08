@@ -12,6 +12,7 @@ import { userRouter } from "./routes/user.routes";
 import { productRouter } from "./routes/product.routes";
 import { wishlistRouter } from "./routes/wishlist.routes";
 import { reviewRouter } from "./routes/review.routes";
+import { cartRouter } from "./routes/cart.routes";
 
 const app = express();
 
@@ -42,6 +43,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/wishlist", wishlistRouter);
 app.use("/api/v1/reviews", reviewRouter);
+app.use("/api/v1/cart", cartRouter);
 // 🚨 Global Error Handler
 app.use(
   (
