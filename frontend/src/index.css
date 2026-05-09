@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&display=swap");
+
+@import "tailwindcss";
+
+/* THEME CONFIG */
+@theme {
+  /* =========================
+     COLORS
+  ========================== */
+
+  /* Brand Primary */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+
+  /* Accent */
+  --color-accent: #f97316;
+
+  /* Background */
+  --color-background: #ffffff;
+
+  /* Surface */
+  --color-surface: #f8fafc;
+
+  /* Text */
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+
+  /* Success */
+  --color-success: #22c55e;
+
+  /* Danger */
+  --color-danger: #ef4444;
+
+  /* =========================
+     FONTS
+  ========================== */
+
+  --font-sans: "Inter", sans-serif;
+
+  --font-heading: "Poppins", sans-serif;
+}
+
+@layer base {
+  :root {
+    --color-background: #ffffff;
+    --color-surface: #f8fafc;
+    --color-text-primary: #111827;
+  }
+}
