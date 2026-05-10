@@ -1,9 +1,16 @@
 import { Routes, Route } from "react-router";
+import Home from "./pages/Home";
+import TopHeader from "./components/TopHeader";
+import Header from "./components/Header";
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<h1>Home</h1>} />
-    </Routes>
+    <>
+      <TopHeader />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </>
   );
 }
