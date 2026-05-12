@@ -1,11 +1,29 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 import { Menu, X, Search, Heart, ShoppingCart } from "lucide-react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = ["Home", "Shop", "About", "Sign Up"];
+  const navLinks = [
+    {
+      name: "Home",
+      path: "/",
+    },
+    {
+      name: "Shop",
+      path: "/shop",
+    },
+    {
+      name: "About",
+      path: "/about",
+    },
+    {
+      name: "Sign Up",
+      path: "signup",
+    },
+  ];
 
   return (
     <header
@@ -30,7 +48,8 @@ export default function Header() {
         <nav className="hidden lg:block">
           <ul className="flex items-center gap-8">
             {navLinks.map((link, index) => (
-              <li
+              <Link
+                to={link.path}
                 key={index}
                 className="
                   relative
@@ -49,8 +68,8 @@ export default function Header() {
                   hover:after:w-full
                 "
               >
-                {link}
-              </li>
+                {link.name}
+              </Link>
             ))}
           </ul>
         </nav>
@@ -178,7 +197,8 @@ export default function Header() {
           {/* Nav Links */}
           <ul className="flex flex-col gap-5">
             {navLinks.map((link, index) => (
-              <li
+              <Link
+                to={link.path}
                 key={index}
                 className="
                   font-medium
@@ -188,8 +208,8 @@ export default function Header() {
                   cursor-pointer
                 "
               >
-                {link}
-              </li>
+                {link.name}
+              </Link>
             ))}
           </ul>
         </div>
