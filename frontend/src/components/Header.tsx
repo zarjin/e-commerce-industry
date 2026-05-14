@@ -104,8 +104,9 @@ export default function Header() {
           </div>
 
           {/* Icons */}
-          <button
-            className="
+          <Link to={"/wishlist"}>
+            <button
+              className="
               w-10
               h-10
               rounded-full
@@ -115,12 +116,13 @@ export default function Header() {
               justify-center
               transition
             "
-          >
-            <Heart size={22} />
-          </button>
-
-          <button
-            className="
+            >
+              <Heart size={22} />
+            </button>
+          </Link>
+          <Link to={"/cart"}>
+            <button
+              className="
               relative
               w-10
               h-10
@@ -131,12 +133,12 @@ export default function Header() {
               justify-center
               transition
             "
-          >
-            <ShoppingCart size={22} />
+            >
+              <ShoppingCart size={22} />
 
-            {/* Cart Badge */}
-            <span
-              className="
+              {/* Cart Badge */}
+              <span
+                className="
                 absolute
                 -top-1
                 -right-1
@@ -150,10 +152,11 @@ export default function Header() {
                 items-center
                 justify-center
               "
-            >
-              2
-            </span>
-          </button>
+              >
+                2
+              </span>
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Button */}
